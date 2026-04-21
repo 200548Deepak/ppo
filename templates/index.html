@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPO Profit Dashboard</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="header">
+            <h1>PPO Profit Dashboard</h1>
+            <p class="subtitle">Overview of USDT trading performance</p>
+        </header>
+
+        <div class="summary-cards" id="summaryCards">
+            <div class="card glass-card">
+                <h3>Total Profit</h3>
+                <p class="value profit-value" id="totalProfit">₹0.00</p>
+            </div>
+            <div class="card glass-card">
+                <h3>Total Buy Volume</h3>
+                <p class="value" id="totalBuy">0.00 USDT</p>
+            </div>
+            <div class="card glass-card">
+                <h3>Total Sell Volume</h3>
+                <p class="value" id="totalSell">0.00 USDT</p>
+            </div>
+        </div>
+
+        <div class="charts-grid">
+            <div class="chart-container glass-card">
+                <h2>Daily Profit</h2>
+                <div class="canvas-wrapper">
+                    <canvas id="dailyProfitChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container glass-card">
+                <h2>Cumulative Profit</h2>
+                <div class="canvas-wrapper">
+                    <canvas id="cumulativeProfitChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container glass-card col-span-2">
+                <h2>Trading Volume (Buy vs Sell)</h2>
+                <div class="canvas-wrapper">
+                    <canvas id="volumeChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
